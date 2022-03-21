@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallerSourceGenerator", "CallerSourceGenerator\CallerSourceGenerator.csproj", "{E86C01AC-4DD1-41E7-9F94-DC44DEE17442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaWebApiWithMinimalAPIs", "MasaWebApiWithMinimalAPIs\MasaWebApiWithMinimalAPIs.csproj", "{86DA499F-98A8-411B-A340-7B61792F94A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoCaller", "AutoCaller\AutoCaller.csproj", "{A6F2A2F2-2D78-4CF8-9166-C0C93FB46443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCallerGenerator", "MasaApiCallerGenerator\MasaApiCallerGenerator.csproj", "{CC30EB8F-3633-4001-B713-F59DEDDA24E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caller", "Caller\Caller.csproj", "{E6523885-76CB-472E-BF3F-4622F6C3EF72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCaller", "MasaApiCaller\MasaApiCaller.csproj", "{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaApiCaller.Tests", "MasaApiCaller.Tests\MasaApiCaller.Tests.csproj", "{30705A05-E12F-48DF-9A47-DC88091AD09C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E86C01AC-4DD1-41E7-9F94-DC44DEE17442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E86C01AC-4DD1-41E7-9F94-DC44DEE17442}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E86C01AC-4DD1-41E7-9F94-DC44DEE17442}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E86C01AC-4DD1-41E7-9F94-DC44DEE17442}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6F2A2F2-2D78-4CF8-9166-C0C93FB46443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6F2A2F2-2D78-4CF8-9166-C0C93FB46443}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6F2A2F2-2D78-4CF8-9166-C0C93FB46443}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6F2A2F2-2D78-4CF8-9166-C0C93FB46443}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6523885-76CB-472E-BF3F-4622F6C3EF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6523885-76CB-472E-BF3F-4622F6C3EF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6523885-76CB-472E-BF3F-4622F6C3EF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6523885-76CB-472E-BF3F-4622F6C3EF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DA499F-98A8-411B-A340-7B61792F94A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DA499F-98A8-411B-A340-7B61792F94A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DA499F-98A8-411B-A340-7B61792F94A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DA499F-98A8-411B-A340-7B61792F94A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
