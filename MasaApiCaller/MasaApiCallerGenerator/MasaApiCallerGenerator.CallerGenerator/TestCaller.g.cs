@@ -14,8 +14,11 @@ namespace MasaApiCaller
             BaseAddress = "http://localhost:5177";
         }
 
-        private WeatherForecastService _WeatherForecastService;
-        public WeatherForecastService WeatherForecastService => _WeatherForecastService ??= new WeatherForecastService(CallerProvider);
+        private GetService _GetService;
+        public GetService GetService => _GetService ??= new GetService(CallerProvider);
+
+        private PostService _PostService;
+        public PostService PostService => _PostService ??= new PostService(CallerProvider);
 
     }
 }

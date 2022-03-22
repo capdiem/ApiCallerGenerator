@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCallerGenerator", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCaller", "MasaApiCaller\MasaApiCaller.csproj", "{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaApiCaller.Tests", "MasaApiCaller.Tests\MasaApiCaller.Tests.csproj", "{30705A05-E12F-48DF-9A47-DC88091AD09C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCaller.Tests", "MasaApiCaller.Tests\MasaApiCaller.Tests.csproj", "{30705A05-E12F-48DF-9A47-DC88091AD09C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaWebApi.Contracts", "MasaWebApi.Contracts\MasaWebApi.Contracts.csproj", "{4129FA05-B1D8-4D8D-837C-4542530FF046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

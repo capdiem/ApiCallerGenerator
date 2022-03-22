@@ -8,5 +8,13 @@
 	<ItemGroup>
 	  <PackageReference Include="Masa.Utils.Caller.HttpClient" Version="0.4.0-preview.1" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MasaWebApi.Contracts\MasaWebApi.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="MasaApiCallerGenerator\MasaApiCallerGenerator.CallerGenerator\" />
+	</ItemGroup>
 	
 </Project>

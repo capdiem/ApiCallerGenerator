@@ -116,7 +116,7 @@ public class CallerGenerator : IIncrementalGenerator
                     {
                         var baseUriArgument = constructorDeclaration.Initializer.ArgumentList.Arguments.FirstOrDefault(arg => arg.Expression.IsKind(SyntaxKind.StringLiteralExpression));
 
-                        var baseUri = baseUriArgument.GetFirstToken().Value?.ToString();
+                        var baseUri = baseUriArgument.GetLastToken().Value?.ToString();
 
                         service.BaseAdress = baseUri;
                     }
@@ -153,6 +153,10 @@ public class CallerGenerator : IIncrementalGenerator
                     if (returnType.BaseType is not null && returnType.BaseType.Equals(task, SymbolEqualityComparer.Default))
                     {
                         method.ReturnType = returnType.TypeArguments.First().ToDisplayString();
+                    }
+                    else if (returnType.Equals(task, SymbolEqualityComparer.Default))
+                    {
+                        method.ReturnType = "void";
                     }
                     else
                     {
@@ -222,15 +226,15 @@ public class CallerGenerator : IIncrementalGenerator
 
                     if (i == 0)
                     {
-                        argumentsOfMap[handlerConst] = argument.GetFirstToken().Value!;
+                        argumentsOfMap[handlerConst] = argument.GetLastToken().Value!;
                     }
                     else if (argument.Expression.IsKind(SyntaxKind.StringLiteralExpression))
                     {
-                        argumentsOfMap[customUriConst] = argument.GetFirstToken().Value ?? "";
+                        argumentsOfMap[customUriConst] = argument.GetLastToken().Value ?? "";
                     }
                     else
                     {
-                        argumentsOfMap[trimEndAsyncConst] = argument.GetFirstToken().Value!;
+                        argumentsOfMap[trimEndAsyncConst] = argument.GetLastToken().Value!;
                     }
                 }
             }

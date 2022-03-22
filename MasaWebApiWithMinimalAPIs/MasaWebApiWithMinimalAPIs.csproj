@@ -25,6 +25,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\MasaApiCallerGenerator\MasaApiCallerGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\MasaWebApi.Contracts\MasaWebApi.Contracts.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

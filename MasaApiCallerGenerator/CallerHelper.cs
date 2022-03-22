@@ -1,6 +1,7 @@
 ﻿using MasaApiCallerGenerator.Models;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MasaApiCallerGenerator
@@ -86,7 +87,7 @@ namespace {Namespace}
 
         static string GenerateService(ServiceModel service)
         {
-            var builder = new StringBuilder($@"
+            var builder = new StringBuilder($@"using System.Collections.Generic;
 using System.Threading.Tasks;
 using Masa.Utils.Caller.Core;
 
@@ -99,15 +100,12 @@ namespace {Namespace}
 
             foreach (var method in service.Methods)
             {
-                var parameters = FormatedParameters(method.Query);
-
                 builder.Append($@"
-        public {method.FormatedReturnType} {method.Name}({parameters})
-        {{
-");
-                builder.Append($@"
-            return CallerProvider.{method.MethodOfICallerProvider}<{method.ReturnType}>(""{method.RelativeUri}"");
-        }}
+        public {method.FormatedReturnType} {method.Name}({method.FormatedParameters})
+        {{");
+                builder.Append(GenMethodBody(method, service.BaseAdress));
+                builder.Append(@"
+        }
 ");
             }
 
@@ -123,27 +121,61 @@ namespace {Namespace}
             return isDapr ? "DaprCallerBase" : "HttpClientCallerBase";
         }
 
-        static string FormatedParameters(object? query)
+        static string GenMethodBody(MethodModel method, string? baseAddress)
         {
-            if (query is null)
-            {
-                return string.Empty;
-            }
+            var sb = new StringBuilder();
 
-            var p = new StringBuilder();
-
-            if (query is Dictionary<string, string> dicQuery)
+            if (method.MethodInvoked == "Get")
             {
-                foreach (var kv in dicQuery)
+                bool queryExists = false;
+
+                if (method.Query is Dictionary<string, string> queryDic)
                 {
-                    p.Append($"{kv.Value} {kv.Key}, ");
+                    queryExists = true;
+
+                    sb.Append(@"
+            var query = new Dictionary<string, string>();");
+
+                    foreach (var item in queryDic)
+                    {
+                        sb.Append($@"
+            query[nameof({item.Key})] = {item.Key}.ToString();");
+                    }
+
+                    sb.AppendLine();
                 }
 
-                var str = p.ToString();
-                return str.Substring(0, str.Length - 3);
+                sb.Append($@"
+            return CallerProvider.GetAsync<{method.ReturnType}>(""{method.GetFullUri(baseAddress)}""");
+
+                if (queryExists)
+                {
+                    sb.Append(", query");
+                }
+
+                sb.Append(");");
+            }
+            else
+            {
+                string? requestVar = null;
+
+                if (method.Query is Dictionary<string, string> queryDic)
+                {
+                    requestVar = queryDic.FirstOrDefault().Key;
+                }
+
+                sb.Append($@"
+            return CallerProvider.{method.GenGenericMethod}(""{method.GetFullUri(baseAddress)}""");
+
+                if (requestVar is not null)
+                {
+                    sb.Append($", {requestVar}");
+                }
+
+                sb.Append(");");
             }
 
-            return string.Empty;
+            return sb.ToString();
         }
     }
 }
