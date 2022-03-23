@@ -4,7 +4,22 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>Latest</LangVersion>
 		<Nullable>enable</Nullable>
+		<AssemblyName>MasaApiCallerGenerator</AssemblyName>
+		<Description>A library that automatically adds callers for masa web api.</Description>
+		<PackageId>MasaApiCallerGenerator</PackageId>
+		<PackageProjectUrl>https://github.com/capdiem/MasaApiCallerGenerator</PackageProjectUrl>
+		<Version>0.0.1</Version>
+		<PublishRepositoryUrl></PublishRepositoryUrl>
+		<RepositoryUrl>https://github.com/capdiem/MasaApiCallerGenerator</RepositoryUrl>
+		<PackageTags>source-generator;masa-webapi;caller;</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath=""/>
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
