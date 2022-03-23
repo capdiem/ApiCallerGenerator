@@ -1,7 +1,8 @@
 # MasaApiCallerGenerator
 
-## TODO
-- [ ] get, post, put, delete
-- [ ] ignore \[FromService\]
-- [ ] give priority to \[FromQuery\] and \[FromBody\]
+## TODOs
+- [x] get, post, put, delete
+- [x] ignore \[FromService\]
+- [ ] ~~give priority to \[FromQuery\] and \[FromBody\]~~
 - [ ] fine with BindAsync and TryParse?
+- [ ] {id}

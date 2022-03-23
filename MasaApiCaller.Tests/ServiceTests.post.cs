@@ -6,33 +6,33 @@ namespace MasaApiCaller.Tests
 {
     public partial class ServiceTests
     {
-        private readonly CreateUserInput _testUser = new CreateUserInput()
+        private readonly UpdateUserInput _userToCreate = new()
         {
             Id = "userid",
             Name = "capdiem"
         };
 
         [TestMethod]
-        public async Task CreateUserWithVoidRespAsync()
+        public async Task UpdateUserWithVoidRespAsync()
         {
-            await _testCaller.PostService.CreateUserWithVoidRespAsync(_testUser);
+            await _testCaller.PutService.UpdateUserWithVoidRespAsync(_userToCreate);
         }
 
         [TestMethod]
-        public async Task CreateUserWithBoolRespAsync()
+        public async Task UpdateUserWithBoolRespAsync()
         {
-            var res = await _testCaller.PostService.CreateUserWithBoolRespAsync(_testUser);
+            var res = await _testCaller.PutService.UpdateUserWithBoolRespAsync(_userToCreate);
 
             Assert.IsTrue(res);
         }
 
         [TestMethod]
-        public async Task CreateUserWithOutputRespAsync()
+        public async Task UpdateUserWithOutputRespAsync()
         {
-            var res = await _testCaller.PostService.CreateUserWithOutputRespAsync(_testUser);
+            var res = await _testCaller.PutService.UpdateUserWithOutputRespAsync(_userToCreate);
 
             Assert.IsTrue(res.Success);
-            Assert.AreEqual(_testUser.Id, res.Data);
+            Assert.AreEqual("userid", res.Data);
         }
     }
 }

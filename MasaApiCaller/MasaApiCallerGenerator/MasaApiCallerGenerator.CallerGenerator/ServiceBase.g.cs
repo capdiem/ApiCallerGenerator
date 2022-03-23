@@ -1,4 +1,4 @@
-﻿
+﻿// Auto-generated code
 using Masa.Utils.Caller.Core;
 
 namespace MasaApiCaller

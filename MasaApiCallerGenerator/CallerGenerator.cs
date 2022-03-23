@@ -19,7 +19,7 @@ public class CallerGenerator : IIncrementalGenerator
 #if DEBUG
         if (!Debugger.IsAttached)
         {
-            Debugger.Launch();
+            //Debugger.Launch();
         }
 #endif
 
@@ -68,6 +68,7 @@ public class CallerGenerator : IIncrementalGenerator
     static ServiceModel? GetTargetDataModelForGeneration(GeneratorSyntaxContext context, CancellationToken token)
     {
         var masaServiceBase = context.SemanticModel.Compilation.GetTypeByMetadataName("MASA.Contrib.Service.MinimalAPIs.ServiceBase");
+        var fromServiceAttribute = context.SemanticModel.Compilation.GetTypeByMetadataName("Microsoft.AspNetCore.Mvc.FromServicesAttribute");
 
         var task = context.SemanticModel.Compilation.GetTypeByMetadataName(typeof(Task).FullName);
 
@@ -129,12 +130,18 @@ public class CallerGenerator : IIncrementalGenerator
                 var method = service.Methods.FirstOrDefault(m => m.Name == methodSymbol.Name);
                 if (method is null)
                 {
-                    return null;
+                    continue;
                 }
 
                 Dictionary<string, string>? query = null;
                 foreach (var parameter in methodSymbol.Parameters)
                 {
+                    // ignore [FormService]
+                    if (parameter.GetAttributes().Any(attr => attr.AttributeClass!.Equals(fromServiceAttribute, SymbolEqualityComparer.Default)))
+                    {
+                        continue;
+                    }
+
                     var name = parameter.Name;
                     var type = parameter.Type.ToDisplayString();
 
@@ -214,28 +221,60 @@ public class CallerGenerator : IIncrementalGenerator
         {
             Dictionary<string, object> argumentsOfMap = new();
             string methodInvoked = null!;
+            bool isOriginAppMap = false;
 
             if (statement is ExpressionStatementSyntax expressionStatementSyntax
                 && expressionStatementSyntax.Expression is InvocationExpressionSyntax invocationExpressionSyntax)
             {
-                methodInvoked = GetHttpMethod(invocationExpressionSyntax.GetFirstToken().ValueText);
-
-                for (int i = 0; i < invocationExpressionSyntax.ArgumentList.Arguments.Count; i++)
+                var token = invocationExpressionSyntax.GetFirstToken().ValueText;
+                if (token.StartsWith("App"))
                 {
-                    var argument = invocationExpressionSyntax.ArgumentList.Arguments[i];
+                    isOriginAppMap = true;
+                    token = invocationExpressionSyntax.Expression.GetLastToken().ValueText;
 
-                    if (i == 0)
+                    for (int i = 0; i < invocationExpressionSyntax.ArgumentList.Arguments.Count; i++)
                     {
-                        argumentsOfMap[handlerConst] = argument.GetLastToken().Value!;
+                        var argument = invocationExpressionSyntax.ArgumentList.Arguments[i];
+
+                        if (i == 0)
+                        {
+                            argumentsOfMap[customUriConst] = argument.GetLastToken().Value ?? "";
+                        }
+                        else
+                        {
+                            argumentsOfMap[handlerConst] = argument.GetLastToken().Value!;
+                        }
                     }
-                    else if (argument.Expression.IsKind(SyntaxKind.StringLiteralExpression))
+                }
+                else
+                {
+                    for (int i = 0; i < invocationExpressionSyntax.ArgumentList.Arguments.Count; i++)
                     {
-                        argumentsOfMap[customUriConst] = argument.GetLastToken().Value ?? "";
+                        var argument = invocationExpressionSyntax.ArgumentList.Arguments[i];
+
+                        if (i == 0)
+                        {
+                            argumentsOfMap[handlerConst] = argument.GetLastToken().Value!;
+                        }
+                        else if (argument.Expression.IsKind(SyntaxKind.StringLiteralExpression))
+                        {
+                            argumentsOfMap[customUriConst] = argument.GetLastToken().Value ?? "";
+                        }
+                        else
+                        {
+                            argumentsOfMap[trimEndAsyncConst] = argument.GetLastToken().Value!;
+                        }
                     }
-                    else
-                    {
-                        argumentsOfMap[trimEndAsyncConst] = argument.GetLastToken().Value!;
-                    }
+                }
+
+                try
+                {
+                    methodInvoked = GetHttpMethod(token);
+                }
+                catch (Exception)
+                {
+                    // todo: ReportDiagnostic
+                    throw;
                 }
             }
 
@@ -263,6 +302,7 @@ public class CallerGenerator : IIncrementalGenerator
             {
                 Name = handler,
                 MethodInvoked = methodInvoked,
+                IsOriginAppMap = isOriginAppMap,
                 RelativeUri = relativeUri,
             });
         }

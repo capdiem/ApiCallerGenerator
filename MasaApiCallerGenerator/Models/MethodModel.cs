@@ -21,6 +21,8 @@ namespace MasaApiCallerGenerator.Models
 
         public string MethodOfICallerProvider => $"{MethodInvoked}Async";
 
+        public bool IsOriginAppMap { get; set; }
+
         public string GenGenericMethod
         {
             get
@@ -86,7 +88,7 @@ namespace MasaApiCallerGenerator.Models
 
         public string? GetFullUri(string? baseAddress)
         {
-            return baseAddress is null
+            return IsOriginAppMap || baseAddress is null
                 ? RelativeUri
                 : $"{baseAddress}/{RelativeUri}";
         }

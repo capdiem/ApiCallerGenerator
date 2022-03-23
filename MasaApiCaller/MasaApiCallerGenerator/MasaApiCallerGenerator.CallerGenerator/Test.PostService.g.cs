@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿// Auto-generated code
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Masa.Utils.Caller.Core;
 
@@ -22,6 +23,5 @@ namespace MasaApiCaller
         {
             return CallerProvider.PostAsync<MasaWebApi.Contracts.CreateUserInput, MasaWebApi.Contracts.Output<string>>("post-services/CreateUserWithOutputResp", input);
         }
-
     }
 }

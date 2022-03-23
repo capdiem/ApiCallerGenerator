@@ -33,7 +33,7 @@ namespace MasaApiCallerGenerator
 
         static string GenerateServiceBase()
         {
-            return $@"
+            return $@"// Auto-generated code
 using Masa.Utils.Caller.Core;
 
 namespace {Namespace}
@@ -53,7 +53,7 @@ namespace {Namespace}
 
         static string GenerateCaller(CallerModel caller)
         {
-            var builder = new StringBuilder($@"
+            var builder = new StringBuilder($@"// Auto-generated code
 using System;
 using Masa.Utils.Caller.HttpClient;
 
@@ -78,8 +78,7 @@ namespace {Namespace}
 ");
             }
 
-            builder.Append(@"
-    }
+            builder.Append(@"    }
 }");
 
             return builder.ToString();
@@ -87,7 +86,8 @@ namespace {Namespace}
 
         static string GenerateService(ServiceModel service)
         {
-            var builder = new StringBuilder($@"using System.Collections.Generic;
+            var builder = new StringBuilder($@"// Auto-generated code
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Masa.Utils.Caller.Core;
 
@@ -109,8 +109,7 @@ namespace {Namespace}
 ");
             }
 
-            builder.Append(@"
-    }
+            builder.Append(@"    }
 }");
 
             return builder.ToString();

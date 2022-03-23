@@ -10,6 +10,6 @@ namespace MasaApiCallerGenerator.Models
 
         public List<MethodModel> Methods { get; set; } = new();
 
-        public string PrivateField => $"_{Name}";
+        public string PrivateField => $"_{Name?.ToCamelCase()}";
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿// Auto-generated code
 using System;
 using Masa.Utils.Caller.HttpClient;
 
@@ -14,11 +14,16 @@ namespace MasaApiCaller
             BaseAddress = "http://localhost:5177";
         }
 
-        private GetService _GetService;
-        public GetService GetService => _GetService ??= new GetService(CallerProvider);
+        private DeleteService _deleteService;
+        public DeleteService DeleteService => _deleteService ??= new DeleteService(CallerProvider);
 
-        private PostService _PostService;
-        public PostService PostService => _PostService ??= new PostService(CallerProvider);
+        private GetService _getService;
+        public GetService GetService => _getService ??= new GetService(CallerProvider);
 
+        private PostService _postService;
+        public PostService PostService => _postService ??= new PostService(CallerProvider);
+
+        private PutService _putService;
+        public PutService PutService => _putService ??= new PutService(CallerProvider);
     }
 }

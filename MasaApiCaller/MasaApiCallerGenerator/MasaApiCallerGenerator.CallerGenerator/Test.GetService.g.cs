@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿// Auto-generated code
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Masa.Utils.Caller.Core;
 
@@ -10,7 +11,7 @@ namespace MasaApiCaller
 
         public Task<string> GetWithEmptyParamsAsync()
         {
-            return CallerProvider.GetAsync<string>("get-services/GetWithEmptyParams");
+            return CallerProvider.GetAsync<string>("empty");
         }
 
         public Task<int> GetWithSingleParamAsync(int num)
@@ -18,7 +19,7 @@ namespace MasaApiCaller
             var query = new Dictionary<string, string>();
             query[nameof(num)] = num.ToString();
 
-            return CallerProvider.GetAsync<int>("get-services/GetWithSingleParam", query);
+            return CallerProvider.GetAsync<int>("single", query);
         }
 
         public Task<string> GetWithTwoParamsAsync(string firstName, string lastName)
@@ -27,18 +28,17 @@ namespace MasaApiCaller
             query[nameof(firstName)] = firstName.ToString();
             query[nameof(lastName)] = lastName.ToString();
 
-            return CallerProvider.GetAsync<string>("get-services/GetWithTwoParams", query);
+            return CallerProvider.GetAsync<string>("two", query);
         }
 
         public Task<string> GetWithCustomUriAsync()
         {
-            return CallerProvider.GetAsync<string>("get-services/custom-uri");
+            return CallerProvider.GetAsync<string>("custom-uri");
         }
 
         public Task<string> GetWithAsyncSuffixAsync()
         {
-            return CallerProvider.GetAsync<string>("get-services/GetWithAsyncSuffixAsync");
+            return CallerProvider.GetAsync<string>("async-suffix");
         }
-
     }
 }

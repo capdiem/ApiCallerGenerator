@@ -27,8 +27,8 @@ namespace MasaWebApiWithMinimalAPIs.OpenApis
             return Task.FromResult(new Output<string>
             {
                 Success = true,
-                Data = input.Id
-            });
+                Data = "userid"
+            }); ;
         }
     }
 }
