@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaWebApiWithMinimalAPIs", "MasaWebApiWithMinimalAPIs\MasaWebApiWithMinimalAPIs.csproj", "{86DA499F-98A8-411B-A340-7B61792F94A4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{517F4D74-2CF6-4BB4-AC63-C7939C9AF782}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCallerGenerator", "MasaApiCallerGenerator\MasaApiCallerGenerator.csproj", "{CC30EB8F-3633-4001-B713-F59DEDDA24E4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{95FC8C70-94B7-46DF-B67C-4D41A0225348}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCaller", "MasaApiCaller\MasaApiCaller.csproj", "{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaWebApiWithMinimalAPIs", "example\MasaWebApiWithMinimalAPIs\MasaWebApiWithMinimalAPIs.csproj", "{638B6B87-38DC-47D3-8CF0-41E5F4B92593}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasaApiCaller.Tests", "MasaApiCaller.Tests\MasaApiCaller.Tests.csproj", "{30705A05-E12F-48DF-9A47-DC88091AD09C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaWebApi.Contracts", "example\MasaWebApi.Contracts\MasaWebApi.Contracts.csproj", "{8D2C5933-9B1D-44D3-B800-3F5FA90BF400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaWebApi.Contracts", "MasaWebApi.Contracts\MasaWebApi.Contracts.csproj", "{4129FA05-B1D8-4D8D-837C-4542530FF046}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaApiCaller.Tests", "example\MasaApiCaller.Tests\MasaApiCaller.Tests.csproj", "{F5592746-46DB-45EA-8C7A-01AC1A12E4FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaApiCaller", "example\MasaApiCaller\MasaApiCaller.csproj", "{D86B77C0-AE2C-489B-8C7E-19C100CC4648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasaApiCallerGenerator", "src\MasaApiCallerGenerator\MasaApiCallerGenerator.csproj", "{8F631570-63E0-4224-95BD-24677E58F56A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,31 +23,38 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{86DA499F-98A8-411B-A340-7B61792F94A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86DA499F-98A8-411B-A340-7B61792F94A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86DA499F-98A8-411B-A340-7B61792F94A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86DA499F-98A8-411B-A340-7B61792F94A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC30EB8F-3633-4001-B713-F59DEDDA24E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69C88A09-DFBD-4ABB-A0DF-78784F3DB015}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30705A05-E12F-48DF-9A47-DC88091AD09C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4129FA05-B1D8-4D8D-837C-4542530FF046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638B6B87-38DC-47D3-8CF0-41E5F4B92593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638B6B87-38DC-47D3-8CF0-41E5F4B92593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638B6B87-38DC-47D3-8CF0-41E5F4B92593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638B6B87-38DC-47D3-8CF0-41E5F4B92593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D2C5933-9B1D-44D3-B800-3F5FA90BF400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2C5933-9B1D-44D3-B800-3F5FA90BF400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2C5933-9B1D-44D3-B800-3F5FA90BF400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2C5933-9B1D-44D3-B800-3F5FA90BF400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5592746-46DB-45EA-8C7A-01AC1A12E4FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5592746-46DB-45EA-8C7A-01AC1A12E4FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5592746-46DB-45EA-8C7A-01AC1A12E4FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5592746-46DB-45EA-8C7A-01AC1A12E4FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86B77C0-AE2C-489B-8C7E-19C100CC4648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86B77C0-AE2C-489B-8C7E-19C100CC4648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86B77C0-AE2C-489B-8C7E-19C100CC4648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86B77C0-AE2C-489B-8C7E-19C100CC4648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F631570-63E0-4224-95BD-24677E58F56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F631570-63E0-4224-95BD-24677E58F56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F631570-63E0-4224-95BD-24677E58F56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F631570-63E0-4224-95BD-24677E58F56A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {036910B8-A357-43BC-ACD7-1855F84A167F}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{638B6B87-38DC-47D3-8CF0-41E5F4B92593} = {95FC8C70-94B7-46DF-B67C-4D41A0225348}
+		{8D2C5933-9B1D-44D3-B800-3F5FA90BF400} = {95FC8C70-94B7-46DF-B67C-4D41A0225348}
+		{F5592746-46DB-45EA-8C7A-01AC1A12E4FF} = {95FC8C70-94B7-46DF-B67C-4D41A0225348}
+		{D86B77C0-AE2C-489B-8C7E-19C100CC4648} = {95FC8C70-94B7-46DF-B67C-4D41A0225348}
+		{8F631570-63E0-4224-95BD-24677E58F56A} = {517F4D74-2CF6-4BB4-AC63-C7939C9AF782}
 	EndGlobalSection
 EndGlobal
