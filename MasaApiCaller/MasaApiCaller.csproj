@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MasaApiCallerGenerator\MasaApiCallerGenerator.CallerGenerator\" />
+	  <Folder Include="MasaApiCallerGenerator\MasaApiCallerGenerator.CallerGenerator" />
 	</ItemGroup>
 	
 </Project>

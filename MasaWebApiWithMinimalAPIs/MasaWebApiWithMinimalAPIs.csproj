@@ -6,8 +6,13 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="MASA.Contrib.Service.MinimalAPIs" Version="0.0.1706108591" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<ProjectReference Include="..\MasaWebApi.Contracts\MasaWebApi.Contracts.csproj" />
+	</ItemGroup>
+
 	<PropertyGroup>
-		<TargetDir>$(SolutionDir)/CallerSourceGenerator</TargetDir>
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<CompilerGeneratedFilesOutputPath>$(SolutionDir)\MasaApiCaller</CompilerGeneratedFilesOutputPath>
 	</PropertyGroup>
@@ -17,15 +22,9 @@
 		<MasaApiCaller_BaseAddress>http://localhost:5177</MasaApiCaller_BaseAddress>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="MASA.Contrib.Service.MinimalAPIs" Version="0.0.1706108591" />
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<PackageReference Include="Masa.Utils.Caller.HttpClient" Version="0.4.0-preview.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\MasaApiCallerGenerator\MasaApiCallerGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-		<ProjectReference Include="..\MasaWebApi.Contracts\MasaWebApi.Contracts.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
