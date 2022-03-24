@@ -32,9 +32,10 @@ Update csproj in your WebApi project:
     <CompilerVisibleProperty Include="MasaApiCaller_BaseAddress" />
 </ItemGroup>
 
+<!-- Move MasaApiCallerGenerator PackageReference into here-->
 <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageReference Include="Masa.Utils.Caller.HttpClient" Version="0.0.0" /> <!-- change version -->
-    <ProjectReference Include="MasaApiCallerGenerator" Version="0.0.0" /> <!-- change version -->
+    <PackageReference Include="Masa.Utils.Caller.HttpClient" Version="0.0.0" />
+    <ProjectReference Include="MasaApiCallerGenerator" Version="0.0.0" />
 </ItemGroup>
 ```
 
