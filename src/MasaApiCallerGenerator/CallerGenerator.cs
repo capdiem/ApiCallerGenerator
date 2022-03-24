@@ -68,11 +68,13 @@ public class CallerGenerator : IIncrementalGenerator
     static ServiceModel? GetTargetDataModelForGeneration(GeneratorSyntaxContext context, CancellationToken token)
     {
         var masaServiceBase = context.SemanticModel.Compilation.GetTypeByMetadataName("MASA.Contrib.Service.MinimalAPIs.ServiceBase");
+        var masaServiceBase2 = context.SemanticModel.Compilation.GetTypeByMetadataName("Masa.Contrib.Service.MinimalAPIs.ServiceBase");
+        
         var fromServiceAttribute = context.SemanticModel.Compilation.GetTypeByMetadataName("Microsoft.AspNetCore.Mvc.FromServicesAttribute");
 
         var task = context.SemanticModel.Compilation.GetTypeByMetadataName(typeof(Task).FullName);
 
-        if (masaServiceBase == null)
+        if (masaServiceBase is null && masaServiceBase2 is null)
         {
             return null;
         }
@@ -86,7 +88,7 @@ public class CallerGenerator : IIncrementalGenerator
             return null;
         }
 
-        if (!IsInheritsFrom(classNamedTypeSymbol, masaServiceBase))
+        if (!IsInheritsFrom(classNamedTypeSymbol, masaServiceBase) && !IsInheritsFrom(classNamedTypeSymbol, masaServiceBase2))
         {
             return null;
         }

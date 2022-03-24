@@ -3,12 +3,13 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>Latest</LangVersion>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<Nullable>enable</Nullable>
 		<AssemblyName>MasaApiCallerGenerator</AssemblyName>
 		<Description>A library that automatically adds callers for masa web api.</Description>
 		<PackageId>MasaApiCallerGenerator</PackageId>
 		<PackageProjectUrl>https://github.com/capdiem/MasaApiCallerGenerator</PackageProjectUrl>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<RepositoryUrl>https://github.com/capdiem/MasaApiCallerGenerator</RepositoryUrl>
 		<PackageTags>source-generator;masa-webapi;caller;</PackageTags>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
