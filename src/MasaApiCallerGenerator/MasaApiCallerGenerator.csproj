@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>Latest</LangVersion>
-		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<Nullable>enable</Nullable>
 		<AssemblyName>MasaApiCallerGenerator</AssemblyName>
 		<Description>A library that automatically adds callers for masa web api.</Description>
